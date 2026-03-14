@@ -89,3 +89,16 @@ On-chain treasury execution model
 
 Kriptoboss
 
+
+---
+
+# Tagline
+
+**Execute treasury operations with natural language.**
+
+Tempo AI Treasury Copilot turns simple commands like:
+
+send alice 20 usd
+
+into structured treasury transactions for on-chain teams.
+
