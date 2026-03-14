@@ -133,3 +133,10 @@ This approach simplifies treasury operations and makes financial workflows acces
 
 It reduces operational complexity and introduces a more intuitive interaction model for on-chain treasury management.
 
+
+---
+
+# Dashboard Preview
+
+![Tempo AI Treasury Copilot](dashboard.png)
+
