@@ -102,3 +102,34 @@ send alice 20 usd
 
 into structured treasury transactions for on-chain teams.
 
+
+---
+
+# Problem
+
+Treasury operations in crypto teams are still manual, technical, and error-prone.
+
+Teams must manage wallet addresses, transfers, contributor payments, and operational funding manually.
+
+---
+
+# Solution
+
+Tempo AI Treasury Copilot introduces a natural language interface for treasury management.
+
+Users can execute treasury operations by simply typing commands like:
+
+send alice 20 usd  
+pay bob 200 usd salary  
+allocate 300 usd to marketing
+
+The system interprets intent and converts commands into treasury transactions.
+
+---
+
+# Impact
+
+This approach simplifies treasury operations and makes financial workflows accessible to both technical and non-technical team members.
+
+It reduces operational complexity and introduces a more intuitive interaction model for on-chain treasury management.
+
