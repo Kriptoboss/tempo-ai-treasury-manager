@@ -6,24 +6,25 @@ AI-powered treasury and payroll copilot for on-chain teams.
 
 Tempo AI Treasury Copilot converts natural-language commands into structured treasury operations.
 
-Users can type commands like:
+Instead of manually managing wallets and complex transfers, teams can simply type commands such as:
 
-- send alice 20 usd
-- pay bob 200 usd salary
-- allocate 300 usd to marketing
-- send charlie 50 usdt
+send alice 20 usd  
+pay bob 200 usd salary  
+allocate 300 usd to marketing  
+send charlie 50 usdt  
 
-The system interprets the command, resolves the recipient, detects the amount and currency, and generates a treasury transaction through a clean dashboard.
+The AI interpreter extracts the intent, recipient, amount and currency and generates a treasury transaction through the treasury engine.
 
 ## Features
 
-- Natural-language treasury commands
+- Natural language treasury commands
 - AI command interpretation
-- Payroll-ready command support
-- Recipient and wallet alias resolution
+- Payroll-ready treasury system
+- Wallet alias resolution
+- Recipient resolution
 - Currency detection
 - Treasury simulation engine
-- Live dashboard demo
+- Operational dashboard
 
 ## Live Demo
 
@@ -31,21 +32,14 @@ http://46.62.230.195:3000/dashboard.html
 
 ## Example Commands
 
-- send alice 20 usd
-- pay bob 200 usd salary
-- allocate 300 usd to marketing
-- send charlie 50 usdt
-
-## How It Works
-
-1. User enters a treasury command
-2. AI interpreter extracts intent, recipient, amount, and currency
-3. Treasury engine generates a simulated settlement transaction
-4. Result is displayed in the dashboard with explorer link
+send alice 20 usd  
+pay bob 200 usd salary  
+allocate 300 usd to marketing  
+send charlie 50 usdt  
 
 ## Architecture
 
-Frontend Dashboard  
+User  
 ↓  
 AI Command Interpreter  
 ↓  
@@ -53,8 +47,10 @@ Treasury Execution Engine
 ↓  
 Settlement Adapter  
 ↓  
-Tempo Explorer
+Tempo Explorer  
 
 ## Built For
 
 Tempo Hackathon
+
+Tempo AI Treasury Copilot introduces a natural language interface for treasury operations and payroll execution for on-chain teams.
