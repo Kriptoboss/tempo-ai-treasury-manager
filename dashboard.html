@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Tempo AI Treasury Manager</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#07153a;
+color:white;
+margin:0;
+padding:40px 20px;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+text-align:center;
+}
+
+h1{
+font-size:50px;
+margin-bottom:10px;
+}
+
+.subtitle{
+color:#cbd5e1;
+margin-bottom:30px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px;
+margin-bottom:35px;
+}
+
+.card{
+background:rgba(255,255,255,0.07);
+border-radius:14px;
+padding:20px;
+}
+
+.card-title{
+font-size:14px;
+color:#cbd5e1;
+}
+
+.card-value{
+font-size:26px;
+font-weight:bold;
+margin-top:6px;
+}
+
+.command-box{
+background:rgba(255,255,255,0.07);
+padding:26px;
+border-radius:14px;
+margin-bottom:26px;
+}
+
+input{
+width:60%;
+padding:14px;
+font-size:16px;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+button{
+padding:14px 24px;
+font-size:16px;
+margin-left:10px;
+cursor:pointer;
+border-radius:8px;
+border:none;
+font-weight:bold;
+}
+
+#interpretation{
+margin-top:20px;
+background:rgba(255,255,255,0.07);
+padding:20px;
+border-radius:12px;
+display:none;
+}
+
+#result{
+margin-top:20px;
+background:rgba(255,255,255,0.07);
+padding:20px;
+border-radius:12px;
+min-height:100px;
+}
+
+.label{
+color:#94a3b8;
+}
+
+.value{
+font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Tempo AI Treasury Manager</h1>
+<div class="subtitle">AI-powered treasury & payroll operations</div>
+
+<div class="cards">
+
+<div class="card">
+<div class="card-title">Treasury Balance</div>
+<div class="card-value">120.5 TEMPO</div>
+</div>
+
+<div class="card">
+<div class="card-title">Total Payments</div>
+<div class="card-value" id="paymentCount">14</div>
+</div>
+
+<div class="card">
+<div class="card-title">Treasury Wallet</div>
+<div class="card-value" style="font-size:15px">
+0xF3A12f26a596e01D0198Bdd8e3bc17d3D08f1083
+</div>
+</div>
+
+<div class="card">
+<div class="card-title">System Status</div>
+<div class="card-value" id="status">Ready</div>
+</div>
+
+</div>
+
+<div class="command-box">
+
+<p>Enter treasury command:</p>
+
+<input id="command"
+placeholder="send alice 20 usd"
+/>
+
+<button onclick="sendCommand()">Execute</button>
+
+</div>
+
+<div id="interpretation"></div>
+
+<div id="result">Awaiting command...</div>
+
+</div>
+
+<script>
+
+let paymentCount=14;
+
+async function sendCommand(){
+
+const cmd=document.getElementById("command").value;
+
+document.getElementById("status").innerText="Processing";
+
+const res=await fetch("/command",{
+
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({command:cmd})
+
+});
+
+const data=await res.json();
+
+if(data.status==="success"){
+
+paymentCount++;
+
+document.getElementById("paymentCount").innerText=paymentCount;
+
+document.getElementById("status").innerText="Success";
+
+document.getElementById("interpretation").style.display="block";
+
+document.getElementById("interpretation").innerHTML=`
+
+<h3>AI Command Interpretation</h3>
+
+<div>
+<span class="label">Intent:</span>
+<span class="value">${data.intent}</span>
+</div>
+
+<div>
+<span class="label">Payment Type:</span>
+<span class="value">${data.paymentType}</span>
+</div>
+
+<div>
+<span class="label">Recipient:</span>
+<span class="value">${data.recipientLabel}</span>
+</div>
+
+<div>
+<span class="label">Recipient Type:</span>
+<span class="value">${data.recipientType}</span>
+</div>
+
+<div>
+<span class="label">Amount:</span>
+<span class="value">${data.amount}</span>
+</div>
+
+<div>
+<span class="label">Currency:</span>
+<span class="value">${data.currency}</span>
+</div>
+
+`;
+
+document.getElementById("result").innerHTML=`
+
+<div>Transaction simulated</div>
+
+<div><b>TX:</b> ${data.tx}</div>
+
+<div>
+<a href="${data.explorer}" target="_blank">
+Open in Explorer
+</a>
+</div>
+
+`;
+
+}
+
+else{
+
+document.getElementById("status").innerText="Error";
+
+document.getElementById("result").innerHTML=data.message;
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
