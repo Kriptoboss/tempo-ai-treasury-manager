@@ -140,3 +140,25 @@ It reduces operational complexity and introduces a more intuitive interaction mo
 
 ![Tempo AI Treasury Copilot](dashboard.png)
 
+
+---
+
+# Vision
+
+Tempo AI Treasury Copilot aims to become a programmable financial interface for on-chain teams.
+
+Instead of interacting directly with wallets and complex financial tools, teams will be able to manage treasury operations using simple natural language commands.
+
+Our long-term vision is to enable AI-driven financial operations where treasury workflows can be automated, audited, and executed through intelligent interfaces.
+
+---
+
+# Future Roadmap
+
+- Multi-wallet treasury support
+- Automated payroll for DAO contributors
+- AI-driven treasury recommendations
+- Transaction approval workflows
+- Integration with stablecoin payment rails
+- Smart treasury policies and automation
+
